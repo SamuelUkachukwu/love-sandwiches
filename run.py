@@ -125,7 +125,22 @@ def main():
     sales_columns = get_last_5_enteries_sales()
     stock_data = calculate_stock_data(sales_columns)
     update_worksheet(stock_data, 'stock')
+    return stock_data
+
+
+# Write you code below this comment
+def get_stock_values(data):
+    """
+    display the product name and quantity to prepare data
+    """
+    headings = SHEET.worksheet("stock").get_all_values()
+    required_stock = dict(zip(headings[0], data))
+    print(f"Make the following numbers of sandwiches for next market:\n")
+    return required_stock
 
 
 print("Welcome to Love Sandwiches Data Automation")
-main()
+stock_data = main()
+
+stock_values = get_stock_values(stock_data)
+print(stock_values)
