@@ -29,13 +29,12 @@ def get_sales_data():
         print("Example: 10,20,30,40,50,60\n")
         data_str = input("Enter your data here:\n")
         sales_data = data_str.split(",")
-        
         if validate_data(sales_data):
             print("Data is valid!")
             break
     return sales_data
-        
-        
+
+
 def validate_data(values):
     """
     Inside the try, converts all string values into integers.
@@ -93,7 +92,7 @@ def get_last_5_enteries_sales():
     """
     sales = SHEET.worksheet('sales')
     columns = []
-    for ind in range(1,7):
+    for ind in range(1, 7):
         column = sales.col_values(ind)
         columns.append(column[-5:])
     return columns
